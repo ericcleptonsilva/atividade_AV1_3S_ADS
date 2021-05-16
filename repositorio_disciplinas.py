@@ -16,18 +16,16 @@ list_id = [1,2,3]
 class RepoDisciplinas:
     def gen_codigo(self):
         for i in range(len(list_id)):
-            self.codigo = list_codigo
-            return self.codigo
+            return list_codigo
 
     def gen_nome(self):
         for i in range(len(list_id)):
-            self.nome = list_disciplinas
-            return self.nome
+            return list_disciplinas
 
 
     def gen_id(self):
         for i in range(len(list_id)):
-            self.id = list_id
-            return self.id
-
+            return list_id
+    
+    
 

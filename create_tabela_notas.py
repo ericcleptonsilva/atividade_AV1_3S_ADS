@@ -1,4 +1,4 @@
-import servicesdb 
+import servicesdb
 
 
 class CreateTabelaNotas:
@@ -9,12 +9,12 @@ class CreateTabelaNotas:
             conn = servicesdb.ConectarDB()
             # execução de comandos para a  criação de tabela
             sql_comando = ''' CREATE TABLE notas(
-                            alunos_id INTEGER NOT NULL,
+                            aluno_id INTEGER NOT NULL,
                             disciplina_id INTEGER NOT NULL,
                             nota1 REAL NOT NULL,                            
                             nota2 REAL NOT NULL,                            
                             nota3 REAL NOT NULL,
-                            FOREIGN KEY(alunos_id) REFERENCES alunos(id),
+                            FOREIGN KEY(aluno_id) REFERENCES alunos(id),
                             FOREIGN KEY(disciplina_id) REFERENCES disciplinas(codigo)
                     
                 
@@ -27,9 +27,11 @@ class CreateTabelaNotas:
         except conn.conexaodb.DatabaseError as err:
             print("Erro de banco de dados - notas", err)
         finally:
-            #fechamento de conexão
+            # fechamento de conexão
             if conn.conexaodb:
                 conn.cursordb.close()
                 conn.conexaodb.close()
             print("Criado com sucesso tabela Notas!")
+
+
 dados = CreateTabelaNotas()

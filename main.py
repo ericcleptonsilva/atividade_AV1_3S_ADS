@@ -7,11 +7,11 @@ import insert_tabelas as insert_tabelas
 def main():
 
     """ Intanciando a class para criação do banco de dados"""
-    dbconn = db.ConectarDB()
+    #dbconn = db.ConectarDB()
     ''' data '''
-    # create_tabelas.CreateTabelas()
+    create_tabelas.CreateTabelas()
     # delete_tabelas.DeleteTabelas()
-    insert_tabelas.InsertTabelas()
+    #insert_tabelas.InsertTabelas()
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-from servicesdb import *
+import servicesdb
 
 
 class CreateTabelaDisciplinas:
@@ -6,7 +6,7 @@ class CreateTabelaDisciplinas:
 
         try:
             # abertura de conexao e aquisição
-            conn = ConectarDB()
+            conn = servicesdb.ConectarDB()
             # execução de comandos para a  criação de tabela
             sql_comando = ''' CREATE TABLE disciplinas(
                             id INTEGER NOT NULL,
@@ -16,14 +16,22 @@ class CreateTabelaDisciplinas:
                             );
                             '''
 
-            conn._cursor.execute(sql_comando)
-            conn._conexao.commit()
+            conn.cursordb.execute(sql_comando)
+            conn.conexaodb.commit()
 
-        except conn._conexao.DatabaseError as err:
+        except conn.conexaodb.DatabaseError as err:
             print("Erro de banco de dados - disciplinas", err)
         finally:
             #fechamento de conexão
-            if conn._conexao:
-                conn._cursor.close()
-                conn._conexao.close()
+            if conn.conexaodb:
+                conn.cursordb.close()
+                conn.conexaodb.close()
             print("Criado com sucesso tabela disciplinas!")
+
+
+dados = CreateTabelaDisciplinas()
+
+
+
+
+

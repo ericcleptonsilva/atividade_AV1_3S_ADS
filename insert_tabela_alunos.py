@@ -1,28 +1,34 @@
-import servicesdb 
+import servicesdb
 import moldes_db as models
+import random
+alunos = models.Alunosdb()
+
+lista = []
+
 
 
 class InsertTabelaAlunos:
     def __init__(self):
-        self.lista = []
+
         try:
             # abertura de conexao e aquisição
             conn = servicesdb.ConectarDB()
             """ colcoar os valores da views do usuario"""
-            alunos = models.Alunosdb()
-            self.lista.append((
-                alunos.cpf,
-                alunos.nome,
-                alunos.email,
-                alunos.matricula,
-                alunos.disciplina_id,
-            ))
+
+            for i in range(len(alunos.nome)):
+                lista.append((
+                    alunos.cpf[i],
+                    alunos.nome[i],
+                    alunos.email[i],
+                    alunos.matricula[i],
+                    alunos.disciplina_id[i],
+                ))                       
+            
             # execução de comandos para a  criação de tabela
             sql_comando = ''' INSERT INTO alunos(cpf, nome, email, matricula, disciplina_id) 
                                         VALUES(?,?,?,?,?); '''
-            conn.cursordb.executemany(sql_comando, self.lista)
-            # for aluno_id in alunos:
-            self.alunos.id = conn._cursor.lastrowid()
+            conn.cursordb.executemany(sql_comando, lista)
+            alunos.id = conn.cursordb.lastrowid
             conn.conexaodb.commit()
 
         except conn.conexaodb.DatabaseError as err:
@@ -37,3 +43,7 @@ class InsertTabelaAlunos:
                 conn.conexaodb.close()
 
             print("dados inseridos  com sucesso da tabela alunos!")
+
+
+dados = InsertTabelaAlunos()
+

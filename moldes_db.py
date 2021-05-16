@@ -1,7 +1,8 @@
 import repositorio_alunos as aluno
 import repositorio_disciplinas as disciplina
 import repositorio_notas as notas
-import consulta_tabela_disciplina as consult
+import consulta_tabela_disciplina_id as consult
+import consulta_tabela_alunos_id as consultAluno
 import random
 
 
@@ -28,12 +29,10 @@ class Disciplinasdb:
 
 class Notasdb:
     def __init__(self,):
-        self.aluno_id = 0
-        self.disciplina_id = consult.ConsultaTabelaDisciplina().colsutDis()
+        listaidalunos = consultAluno.ConsultaTabelaAlunoId().colsutDisId()
+        liastaidDis = consultAluno.ConsultaTabelaAlunoId().colsutAluId()
+        self.aluno_id = listaidalunos
+        self.disciplina_id = liastaidDis
         self.nota_01 = notas.RepoNotas().gen_notas()
         self.nota_02 = notas.RepoNotas().gen_notas()
         self.nota_03 = notas.RepoNotas().gen_notas()
-
-
-dados = Alunosdb()
-print(dados.disciplina_id)

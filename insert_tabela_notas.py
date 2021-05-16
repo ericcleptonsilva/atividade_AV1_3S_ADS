@@ -1,33 +1,31 @@
-import servicesdb 
+import servicesdb
 from moldes_db import Notasdb
 
 
-notas = Notasdb()
-lista = []
-for i in range(len(notas.aluno_id)):
-    lista.append((
-        notas.aluno_id[i], 
-        notas.disciplina_id[i],
-        notas.nota_01[i], 
-        notas.nota_02[i], 
-        notas.nota_03[i]
-        ))
-  
 class InsertTabelaNotas:
     def __init__(self):
-
+        notas = Notasdb()
+        lista = []
         try:
             ''' abertura de conexao e aquisição'''
-            conn = servicesdb.ConectarDB()            
-            conn.conexaodb.execute('PRAGMA foreign_keys=on') 
+            conn = servicesdb.ConectarDB()
+            for i in range(10):
+                lista.append((
+                    notas.aluno_id[i],
+                    notas.disciplina_id[i],
+                    notas.nota_01[i],
+                    notas.nota_02[i],
+                    notas.nota_03[i],
+                ))
+            conn.cursordb.execute('PRAGMA foreign_keys=off')
             sql_comando = ''' INSERT INTO notas(
                                                 aluno_id,
                                                 disciplina_id, 
-                                                nota_01, 
-                                                nota_02, 
-                                                nota_03
+                                                nota1, 
+                                                nota2, 
+                                                nota3
                                                 ) 
-                                        VALUES(?,?,?,?,?)
+                                        VALUES( ?,?,?,?,?)
             '''
             conn.cursordb.executemany(sql_comando, lista)
             conn.conexaodb.commit()
@@ -44,3 +42,6 @@ class InsertTabelaNotas:
                 conn.conexaodb.close()
 
         print("dados inseridos  com sucesso da tabela disciplinas!")
+
+
+dados = InsertTabelaNotas()
