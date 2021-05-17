@@ -29,6 +29,4 @@ class ConsultaTabelaDisciplina:
         print("dados inseridos  com sucesso da tabela disciplinas!")
 
 
-
-
-dadosC = ConsultaTabelaDisciplina().colsutDis()
+dadosC = ConsultaTabelaDisciplina()

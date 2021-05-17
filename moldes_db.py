@@ -28,11 +28,9 @@ class Disciplinasdb:
 
 
 class Notasdb:
-    def __init__(self,):
-        listaidalunos = consultAluno.ConsultaTabelaAlunoId().colsutDisId()
-        liastaidDis = consultAluno.ConsultaTabelaAlunoId().colsutAluId()
-        self.aluno_id = listaidalunos
-        self.disciplina_id = liastaidDis
+    def __init__(self):
+        self.aluno_id = consultAluno.ConsultaTabelaAlunoId().colsutAluId()
+        self.disciplina_id = consultAluno.ConsultaTabelaAlunoId().colsutDisId()
         self.nota_01 = notas.RepoNotas().gen_notas()
         self.nota_02 = notas.RepoNotas().gen_notas()
         self.nota_03 = notas.RepoNotas().gen_notas()

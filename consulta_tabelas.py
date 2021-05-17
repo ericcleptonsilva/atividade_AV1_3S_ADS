@@ -1,8 +1,8 @@
 import servicesdb
 
 
-class ConsultaTabelaAlunoId:
-    def colsutAluId(self):
+class ConsultaTabelas:
+    def colsutGeral(self):
         lista = []
         try:
             ''' abertura de conexao e aquisição'''
@@ -26,7 +26,6 @@ class ConsultaTabelaAlunoId:
                 conn.cursordb.close()
         print("dados inseridos  com sucesso da tabela disciplinas!")
 
-    """Consulta os Id"""
     def colsutDisId(self):
         lista = []
         try:
@@ -52,4 +51,4 @@ class ConsultaTabelaAlunoId:
         print("dados inseridos  com sucesso da tabela disciplinas!")
 
 
-dadosC = ConsultaTabelaAlunoId()
+dadosC = ConsultaTabelas()
