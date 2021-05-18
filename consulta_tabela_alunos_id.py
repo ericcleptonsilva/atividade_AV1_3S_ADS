@@ -47,9 +47,14 @@ class ConsultaTabelaAlunoId:
         print('-' * 100)
 
         for lista in self.registros:
+            '''Função para calcular as notas e exibir APROVADO ou REPROVADO'''
+            notas = (lista[3] + lista[4] + lista[5]) / 3
+            if notas > 6:
+                listaN = 'APROVADO'
+            else:
+                listaN = 'REPROVADO'
             print('{:<16} {:<10} {:<23}{:<10}{:<10}{:<10}{}'.format(
-                *lista, 'APROVADOS'))
-
+                *lista, listaN))
         print()
 
         print()
